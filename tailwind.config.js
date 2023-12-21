@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       sans: ["Raleway", "sans-serif"],
       enphasis: ["Titillium Web", "serif"],
+      mono: ["Space Mono", "ui-monospace"],
     },
     colors: {
       primary: "#d43947",
