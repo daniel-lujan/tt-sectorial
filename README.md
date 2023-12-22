@@ -7,8 +7,11 @@
 ## Features
 
 ✅ Agregar categorías, subcategorías y temas
+
 ✅ Categorías con descripción
+
 ✅ Eliminar elementos vacíos
+
 ✅ Activar/desactivar categorías
 
 ## App Preview (Mobile)
