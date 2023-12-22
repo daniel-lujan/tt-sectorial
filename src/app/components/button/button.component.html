@@ -1,0 +1,9 @@
+<button
+  class="flex bg-primary px-4 py-2 rounded-md text-background hover:bg-accent items-center justify-center"
+  [class]="classes"
+  (click)="clicked.emit($event)"
+  [disabled]="disabled"
+  [type]="type"
+>
+  <ng-content></ng-content>
+</button>
