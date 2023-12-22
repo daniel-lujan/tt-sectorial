@@ -1,7 +1,12 @@
 <h1 class="text-4xl font-enphasis font-bold">Categorías</h1>
 @if (categories.result$ | async; as result) { @if (result.isLoading) {
 <p>Loading</p>
-} @if (result.isSuccess) { @for (cat of result.data; track cat._id) {
+} @if (result.isSuccess) {
+<app-button class="self-center">
+  <svg-icon name="category-plus" svgClass="w-5 h-5 mr-2" />
+  Añadir categoría</app-button
+>
+@for (cat of result.data; track cat._id) {
 <a [routerLink]="['/category', cat._id]" class="block">
   <app-category-card [category]="cat"></app-category-card>
 </a>
