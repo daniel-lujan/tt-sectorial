@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { CategoryCardComponent } from '../../components/category-card/category-card.component';
 import { ButtonComponent } from '../../components/button/button.component';
@@ -29,7 +29,7 @@ export class SubcategoryComponent {
   catData = {} as Category;
   data = {} as SubCategory;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe((params) => {
       this.catId = params['id'];
       this.subId = params['subid'];
@@ -54,6 +54,10 @@ export class SubcategoryComponent {
     this.queryClient.removeQueries({
       queryKey: ['categories'],
     });
+    this.categories.result$.subscribe(async (res) => {
+      await res.refetch();
+    });
+    this.router.navigate(['/category', this.catId]);
   }
 
   deleteTopicHandler(topicId: string) {
