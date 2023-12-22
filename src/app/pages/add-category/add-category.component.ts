@@ -26,6 +26,7 @@ export class AddCategoryComponent {
   addCategory = inject(BlogService).addCategory();
   addSubcategory = inject(BlogService).addSubcategory();
   addTopic = inject(BlogService).addTopic();
+  client = inject(BlogService).queryClient;
 
   form: FormGroup;
 
@@ -63,15 +64,19 @@ export class AddCategoryComponent {
     if (this.catId) {
       if (this.subId) {
         this.addTopic.mutate({
+          categoryId: this.catId,
+          subcategoryId: this.subId,
           name: this.form.value.name,
         });
       } else {
         this.addSubcategory.mutate({
+          categoryId: this.catId,
           name: this.form.value.name,
         });
       }
     } else {
       this.addCategory.mutate(this.form.value);
     }
+    this.client.removeQueries({ queryKey: ['categories'] });
   }
 }

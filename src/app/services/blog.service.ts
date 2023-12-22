@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 
-import { injectMutation, injectQuery } from '@ngneat/query';
+import { injectMutation, injectQuery, injectQueryClient } from '@ngneat/query';
 import { environment } from '../../environment/environment';
 
 @Injectable({ providedIn: 'root' })
 export class BlogService {
+  #client = injectQueryClient();
   #http = inject(HttpClient);
   #query = injectQuery();
   #mutation = injectMutation();
@@ -53,5 +54,9 @@ export class BlogService {
         );
       },
     });
+  }
+
+  get queryClient() {
+    return this.#client;
   }
 }
