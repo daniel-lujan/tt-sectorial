@@ -34,6 +34,19 @@ export class BlogService {
     });
   }
 
+  deleteCategory() {
+    return this.#mutation({
+      mutationFn: (data: DeleteCategoryPayload) => {
+        return this.#http.delete<DeleteCategoryResponse>(
+          `${environment.apiUrl}/blog/categories/`,
+          {
+            params: data,
+          }
+        );
+      },
+    });
+  }
+
   addSubcategory() {
     return this.#mutation({
       mutationFn: (data: AddSubcategoryPayload) => {
@@ -45,12 +58,38 @@ export class BlogService {
     });
   }
 
+  deleteSubcategory() {
+    return this.#mutation({
+      mutationFn: (data: DeleteSubcategoryPayload) => {
+        return this.#http.delete<DeleteSubcategoryResponse>(
+          `${environment.apiUrl}/blog/subcategories/`,
+          {
+            params: data,
+          }
+        );
+      },
+    });
+  }
+
   addTopic() {
     return this.#mutation({
       mutationFn: (data: AddTopicPayload) => {
         return this.#http.post<AddTopicResponse>(
           `${environment.apiUrl}/blog/topics`,
           data
+        );
+      },
+    });
+  }
+
+  deleteTopic() {
+    return this.#mutation({
+      mutationFn: (data: DeleteTopicPayload) => {
+        return this.#http.delete<DeleteTopicResponse>(
+          `${environment.apiUrl}/blog/topics/`,
+          {
+            params: data,
+          }
         );
       },
     });

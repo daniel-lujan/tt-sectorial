@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { ButtonComponent } from '../../components/button/button.component';
@@ -30,7 +30,7 @@ export class AddCategoryComponent {
 
   form: FormGroup;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe((params) => {
       this.catId = params['cat'];
       this.subId = params['sub'];
@@ -60,7 +60,8 @@ export class AddCategoryComponent {
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
+    this.client.removeQueries({ queryKey: ['categories'] });
     if (this.catId) {
       if (this.subId) {
         this.addTopic.mutate({
@@ -77,6 +78,5 @@ export class AddCategoryComponent {
     } else {
       this.addCategory.mutate(this.form.value);
     }
-    this.client.removeQueries({ queryKey: ['categories'] });
   }
 }

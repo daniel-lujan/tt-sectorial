@@ -11,13 +11,14 @@
     }
   </div>
   @if (isHovered) {
-  <div
+  <button
     class="absolute text-secondary right-8 rounded-md p-2 hover:bg-background-900 transition-colors hover:cursor-pointer hover:text-primary"
+    (click)="clicked.emit(category._id)"
   >
     <svg-icon
-      name="chevron-right"
+      [name]="deletable ? 'trash-filled' : 'chevron-right'"
       class="w-6 h-6 transition-colors duration-75"
     />
-  </div>
+  </button>
   }
 </div>

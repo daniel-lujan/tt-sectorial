@@ -17,7 +17,11 @@
   </app-button>
 </a>
 @for (top of data.topics; track top._id) {
-<app-category-card [category]="top"></app-category-card>
+<app-category-card
+  [category]="top"
+  (clicked)="deleteTopicHandler($event)"
+  [deletable]="true"
+></app-category-card>
 } } @else {
 <p class="bg-background-600 py-3 px-6 rounded-md text-center">
   No hay temas,

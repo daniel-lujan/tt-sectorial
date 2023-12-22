@@ -21,6 +21,9 @@ import { SvgIconComponent } from 'angular-svg-icon';
 })
 export class SubcategoryComponent {
   categories = inject(BlogService).getCategories();
+  deleteSubcategory = inject(BlogService).deleteSubcategory();
+  deleteTopic = inject(BlogService).deleteTopic();
+  queryClient = inject(BlogService).queryClient;
   catId = '';
   subId = '';
   catData = {} as Category;
@@ -40,6 +43,30 @@ export class SubcategoryComponent {
           this.catData.subcategories.find((item) => item._id === this.subId) ??
           ({} as SubCategory);
       }
+    });
+  }
+
+  deleteSubcategoryHandler() {
+    this.deleteSubcategory.mutate({
+      categoryId: this.catId,
+      subcategoryId: this.subId,
+    });
+    this.queryClient.removeQueries({
+      queryKey: ['categories'],
+    });
+  }
+
+  deleteTopicHandler(topicId: string) {
+    this.deleteTopic.mutate({
+      categoryId: this.catId,
+      subcategoryId: this.subId,
+      topicId,
+    });
+    this.queryClient.removeQueries({
+      queryKey: ['categories'],
+    });
+    this.categories.result$.subscribe(async (res) => {
+      await res.refetch();
     });
   }
 }

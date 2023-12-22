@@ -19,6 +19,10 @@
     {
       "iconName": "git-merge",
       "iconPath": "/assets/icons/git-merge.svg"
+    },
+    {
+      "iconName": "trash-filled",
+      "iconPath": "/assets/icons/trash-filled.svg"
     }
   ],
   "customIcons": []

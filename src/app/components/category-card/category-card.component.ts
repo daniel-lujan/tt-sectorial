@@ -1,4 +1,10 @@
-import { Component, HostListener, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { StatusChipComponent } from '../status-chip/status-chip.component';
 
@@ -10,7 +16,9 @@ import { StatusChipComponent } from '../status-chip/status-chip.component';
   styleUrl: './category-card.component.css',
 })
 export class CategoryCardComponent {
+  @Input() deletable = false;
   @Input() category: Partial<Category> = {} as Category;
+  @Output() clicked: EventEmitter<string> = new EventEmitter<string>();
   isHovered = false;
 
   @HostListener('mouseenter')
