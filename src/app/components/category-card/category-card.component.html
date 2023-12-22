@@ -4,7 +4,12 @@
   <div class="flex justify-center items-center w-16 h-16 bg-background-900">
     <svg-icon name="category" class="text-primary" />
   </div>
-  <div class="flex-1 px-6 py-3">{{ category.name }}</div>
+  <div class="flex flex-1 px-6 py-3 gap-4">
+    {{ category.name }}
+    @if (category.isActive !== undefined) {
+    <app-status-chip [isActive]="category.isActive" />
+    }
+  </div>
   @if (isHovered) {
   <div
     class="absolute text-secondary right-8 rounded-md p-2 hover:bg-background-900 transition-colors hover:cursor-pointer hover:text-primary"
