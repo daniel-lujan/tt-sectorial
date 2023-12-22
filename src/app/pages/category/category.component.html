@@ -1,0 +1,21 @@
+<app-breadcrumb
+  [elements]="[{ label: data.name, url: '/category' + data._id }]"
+></app-breadcrumb>
+<h1 class="font-bold font-enphasis text-4xl">{{ data.name }}</h1>
+<p>{{ data.description }}</p>
+@if (data.subcategories.length > 0) {
+<app-button class="self-center">
+  <svg-icon name="category-plus" svgClass="w-5 h-5 mr-2" />
+  Añadir subcategoría
+</app-button>
+@for (sub of data.subcategories; track sub._id) {
+<app-category-card [category]="sub"></app-category-card>
+} } @else {
+<p class="bg-background-600 py-3 px-6 rounded-md text-center">
+  No hay subcategorías,
+  <a
+    class="hover:underline hover:cursor-pointer font-bold hover:text-primary transition-colors"
+    >agrega una</a
+  >
+</p>
+}
