@@ -78,5 +78,9 @@ export class AddCategoryComponent {
     } else {
       this.addCategory.mutate(this.form.value);
     }
+    this.categories.result$.subscribe(async (res) => {
+      await res.refetch();
+    });
+    this.router.navigate(['/']);
   }
 }
