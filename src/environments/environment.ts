@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000',
+  apiUrl: 'https://tt-sectorial-3c297638ce4b.herokuapp.com/',
 };
