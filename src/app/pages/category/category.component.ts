@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { ButtonComponent } from '../../components/button/button.component';
@@ -25,10 +25,12 @@ import { StatusChipComponent } from '../../components/status-chip/status-chip.co
 })
 export class CategoryComponent {
   categories = inject(BlogService).getCategories();
+  deleteCategory = inject(BlogService).deleteCategory();
+  queryClient = inject(BlogService).queryClient;
   id = '';
   data = {} as Category;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
     });
@@ -37,5 +39,17 @@ export class CategoryComponent {
       this.data =
         res.data?.find((item) => item._id === this.id) ?? ({} as Category);
     });
+  }
+
+  deleteCategoryHandler() {
+    this.deleteCategory.mutate({ categoryId: this.id });
+
+    this.queryClient.removeQueries({
+      queryKey: ['categories'],
+    });
+    this.categories.result$.subscribe(async (res) => {
+      await res.refetch();
+    });
+    this.router.navigate(['/']);
   }
 }
