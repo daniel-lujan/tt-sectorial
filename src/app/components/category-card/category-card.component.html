@@ -1,0 +1,18 @@
+<div
+  class="relative flex bg-background-600 max-w-full w-[600px] min-h-16 items-center rounded-md overflow-hidden hover:shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px] transition-shadow shadow-sm"
+>
+  <div class="flex justify-center items-center w-16 h-16 bg-background-900">
+    <svg-icon name="category" class="text-primary" />
+  </div>
+  <div class="flex-1 px-6 py-3">{{ category.name }}</div>
+  @if (isHovered) {
+  <div
+    class="absolute text-secondary right-8 rounded-md p-2 hover:bg-background-900 transition-colors hover:cursor-pointer hover:text-primary"
+  >
+    <svg-icon
+      name="chevron-right"
+      class="w-6 h-6 transition-colors duration-75"
+    />
+  </div>
+  }
+</div>
