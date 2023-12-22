@@ -1,0 +1,57 @@
+<h1 class="text-4xl font-enphasis font-bold">
+  Añadir
+  {{ catId ? (subId ? "tema" : "subcategoría") : "categoría" }}
+</h1>
+@if (catId) {
+<span
+  class="flex gap-2 font-mono bg-background-900 text-primary w-fit px-3 py-1 rounded-md"
+>
+  <svg-icon name="git-merge"></svg-icon>
+  Se añadirá a la categoría <b>{{ catData.name }}</b>
+</span>
+} @if (subId) {
+<span
+  class="flex gap-2 font-mono bg-background-900 text-primary w-fit px-3 py-1 rounded-md"
+>
+  <svg-icon name="git-merge"></svg-icon>
+  Se añadirá a la subcategoría <b>{{ data.name }}</b>
+</span>
+}
+<form class="flex gap-6 flex-col" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name" class="text-sm font-bold"
+      >Nombre <b class="text-primary">*</b></label
+    >
+    <input
+      id="name"
+      class="border outline-accent border-grey-300 text-grey-900 text-sm rounded-lg focus:ring-primary focus:border-accent block w-full p-2.5 px-4"
+      type="text"
+      placeholder="p. ej: Entretenimiento"
+      formControlName="name"
+    />
+  </div>
+  @if (!(catId || subId)) {
+  <div>
+    <label for="description" class="text-sm font-bold">Descripción</label>
+    <input
+      id="description"
+      type="text"
+      placeholder="p. ej: Lo último en entretenimiento"
+      class="border outline-accent border-grey-300 text-grey-900 text-sm rounded-lg focus:ring-primary focus:border-accent block w-full p-2.5 px-4"
+      formControlName="description"
+    />
+  </div>
+  <div class="flex items-center gap-3">
+    <input
+      id="isActive"
+      type="checkbox"
+      class="w-4 h-4 border border-grey-300 bg-primary rounded-md accent-accent"
+      formControlName="isActive"
+    />
+    <label for="isActive" class="text-sm font-bold"
+      >Activar esta categoría</label
+    >
+  </div>
+  }
+  <app-button type="submit" [disabled]="form.invalid">Añadir</app-button>
+</form>
