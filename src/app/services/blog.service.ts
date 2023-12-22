@@ -95,6 +95,22 @@ export class BlogService {
     });
   }
 
+  activateCategory() {
+    return this.#mutation({
+      mutationFn: (data: ActivateCategoryPayload) => {
+        return this.#http.put<ActivateCategoryResponse>(
+          `${environment.apiUrl}/blog/categories/${data.id}/activate`,
+          {},
+          {
+            params: {
+              value: data.value.toString(),
+            },
+          }
+        );
+      },
+    });
+  }
+
   get queryClient() {
     return this.#client;
   }

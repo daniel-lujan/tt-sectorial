@@ -27,6 +27,7 @@ export class CategoryComponent {
   categories = inject(BlogService).getCategories();
   deleteCategory = inject(BlogService).deleteCategory();
   queryClient = inject(BlogService).queryClient;
+  activateCategory = inject(BlogService).activateCategory();
   id = '';
   data = {} as Category;
 
@@ -51,5 +52,19 @@ export class CategoryComponent {
       await res.refetch();
     });
     this.router.navigate(['/']);
+  }
+
+  activateCategoryHandler() {
+    this.activateCategory.mutate({
+      id: this.id,
+      value: !this.data.isActive,
+    });
+
+    this.queryClient.removeQueries({
+      queryKey: ['categories'],
+    });
+    this.categories.result$.subscribe(async (res) => {
+      await res.refetch();
+    });
   }
 }

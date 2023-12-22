@@ -5,9 +5,12 @@
   {{ data.name }}
   <app-status-chip [isActive]="data.isActive"></app-status-chip>
 </h1>
-<a class="text-sm mt-[-18px] w-fit text-accent underline hover:cursor-pointer"
-  >{{ data.isActive ? "Desactivar" : "Activar" }} esta categoría</a
+<button
+  (click)="activateCategoryHandler()"
+  class="text-sm mt-[-18px] w-fit text-accent underline hover:cursor-pointer"
 >
+  {{ data.isActive ? "Desactivar" : "Activar" }} esta categoría
+</button>
 <p>{{ data.description }}</p>
 @if (data.subcategories && data.subcategories.length) {
 <a

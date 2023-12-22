@@ -41,3 +41,10 @@ type DeleteTopicPayload = {
 };
 
 type DeleteTopicResponse = null;
+
+type ActivateCategoryPayload = {
+  id: string;
+  value: boolean;
+};
+
+type ActivateCategoryResponse = null;
