@@ -1,5 +1,5 @@
 <app-breadcrumb
-  [elements]="[{ label: data.name, url: '/category' + data._id }]"
+  [elements]="[{ label: data.name, url: '/category/' + data._id }]"
 ></app-breadcrumb>
 <h1 class="font-bold font-enphasis text-4xl">{{ data.name }}</h1>
 <p>{{ data.description }}</p>
@@ -9,7 +9,9 @@
   Añadir subcategoría
 </app-button>
 @for (sub of data.subcategories; track sub._id) {
-<app-category-card [category]="sub"></app-category-card>
+<a [routerLink]="['/category', data._id, sub._id]">
+  <app-category-card [category]="sub"></app-category-card>
+</a>
 } } @else {
 <p class="bg-background-600 py-3 px-6 rounded-md text-center">
   No hay subcategorías,

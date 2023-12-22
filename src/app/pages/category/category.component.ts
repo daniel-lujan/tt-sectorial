@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { ButtonComponent } from '../../components/button/button.component';
@@ -16,6 +16,7 @@ import { CategoryCardComponent } from '../../components/category-card/category-c
     CategoryCardComponent,
     ButtonComponent,
     SvgIconComponent,
+    RouterLink,
   ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css',
