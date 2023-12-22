@@ -9,7 +9,7 @@
   >{{ data.isActive ? "Desactivar" : "Activar" }} esta categoría</a
 >
 <p>{{ data.description }}</p>
-@if (data.subcategories.length > 0) {
+@if (data.subcategories && data.subcategories.length) {
 <a
   routerLink="/add-category"
   [queryParams]="{ cat: data._id }"
