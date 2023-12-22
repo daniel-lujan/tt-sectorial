@@ -23,6 +23,10 @@
     {
       "iconName": "trash-filled",
       "iconPath": "/assets/icons/trash-filled.svg"
+    },
+    {
+      "iconName": "brand-github-filled",
+      "iconPath": "/assets/icons/brand-github-filled.svg"
     }
   ],
   "customIcons": []
