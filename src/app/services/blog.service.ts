@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 
 import { injectMutation, injectQuery, injectQueryClient } from '@ngneat/query';
-import { environment } from '../../environment/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class BlogService {
