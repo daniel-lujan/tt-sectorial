@@ -29,6 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^17.0.0
     version: 17.0.8(@angular/common@17.0.8)(@angular/core@17.0.8)(@angular/platform-browser@17.0.8)(rxjs@7.8.1)
+  '@ngneat/query':
+    specifier: 2.0.0-beta.8
+    version: 2.0.0-beta.8(@angular/core@17.0.8)(@tanstack/query-core@5.14.2)
   angular-svg-icon:
     specifier: ^17.0.0
     version: 17.0.0(@angular/common@17.0.8)(@angular/core@17.0.8)(rxjs@7.8.1)
@@ -2343,6 +2346,17 @@ packages:
       call-bind: 1.0.5
     dev: true
 
+  /@ngneat/query@2.0.0-beta.8(@angular/core@17.0.8)(@tanstack/query-core@5.14.2):
+    resolution: {integrity: sha512-sHVsT3p+J7/xSp2U1F7d1a4sZHrkbKf9W5Y4tSMWfRIeCyIkG5RZOHCiB99HjqY1HpDdoj8AnT4toRfWbYSiCw==}
+    peerDependencies:
+      '@angular/core': '>=16.0.0 <18.0.0'
+      '@tanstack/query-core': ^5.4.3
+    dependencies:
+      '@angular/core': 17.0.8(rxjs@7.8.1)(zone.js@0.14.2)
+      '@tanstack/query-core': 5.14.2
+      tslib: 2.6.2
+    dev: false
+
   /@ngtools/webpack@17.0.8(@angular/compiler-cli@17.0.8)(typescript@5.2.2)(webpack@5.89.0):
     resolution: {integrity: sha512-wx0XBMrbpDeailK2uIhp/ZVMC3GK3BWwJjUu5SbT4BFrcoi2Zd9/9m0RCBAY54UXLBCqKd+ih7pJ6JSvprZmWw==}
     engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
@@ -2630,6 +2644,10 @@ packages:
   /@socket.io/component-emitter@3.1.0:
     resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: true
+
+  /@tanstack/query-core@5.14.2:
+    resolution: {integrity: sha512-QmoJvC72sSWs3hgGis8JdmlDvqLfYGWUK4UG6OR9Q6t28JMN9m2FDwKPqoSJ9YVocELCSjMt/FGjEiLfk8000Q==}
+    dev: false
 
   /@tufjs/canonical-json@2.0.0:
     resolution: {integrity: sha512-yVtV8zsdo8qFHe+/3kw81dSLyF7D576A5cCFCi4X7B39tWT7SekaEFUnvnWJHz+9qO7qJTah1JbrDjWKqFtdWA==}
