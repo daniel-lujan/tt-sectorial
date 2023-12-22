@@ -9,11 +9,14 @@ type AddCategoryResponse = {
 };
 
 type AddSubcategoryPayload = {
+  categoryId: string;
   name: string;
 };
 
 type AddSubcategoryResponse = null;
 
-type AddTopicPayload = AddSubcategoryPayload;
+type AddTopicPayload = AddSubcategoryPayload & {
+  subcategoryId: string;
+};
 
 type AddTopicResponse = null;

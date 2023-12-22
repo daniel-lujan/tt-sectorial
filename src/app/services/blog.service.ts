@@ -37,7 +37,7 @@ export class BlogService {
     return this.#mutation({
       mutationFn: (data: AddSubcategoryPayload) => {
         return this.#http.post<AddSubcategoryResponse>(
-          `${environment.apiUrl}/blog/categories`,
+          `${environment.apiUrl}/blog/subcategories`,
           data
         );
       },
@@ -48,7 +48,7 @@ export class BlogService {
     return this.#mutation({
       mutationFn: (data: AddTopicPayload) => {
         return this.#http.post<AddTopicResponse>(
-          `${environment.apiUrl}/blog/categories`,
+          `${environment.apiUrl}/blog/topics`,
           data
         );
       },
