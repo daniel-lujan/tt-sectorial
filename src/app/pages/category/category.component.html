@@ -10,10 +10,16 @@
 >
 <p>{{ data.description }}</p>
 @if (data.subcategories.length > 0) {
-<app-button class="self-center">
-  <svg-icon name="category-plus" svgClass="w-5 h-5 mr-2" />
-  Añadir subcategoría
-</app-button>
+<a
+  routerLink="/add-category"
+  [queryParams]="{ cat: data._id }"
+  class="self-center"
+>
+  <app-button>
+    <svg-icon name="category-plus" svgClass="w-5 h-5 mr-2" />
+    Añadir subcategoría
+  </app-button>
+</a>
 @for (sub of data.subcategories; track sub._id) {
 <a [routerLink]="['/category', data._id, sub._id]">
   <app-category-card [category]="sub"></app-category-card>
