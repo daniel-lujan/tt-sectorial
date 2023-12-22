@@ -1,0 +1,21 @@
+{
+  "iconImageFiles": [
+    {
+      "iconName": "category",
+      "iconPath": "/assets/icons/category.svg"
+    },
+    {
+      "iconName": "category-plus",
+      "iconPath": "/assets/icons/category-plus.svg"
+    },
+    {
+      "iconName": "chevron-right",
+      "iconPath": "/assets/icons/chevron-right.svg"
+    },
+    {
+      "iconName": "home",
+      "iconPath": "/assets/icons/home.svg"
+    }
+  ],
+  "customIcons": []
+}
