@@ -28,6 +28,8 @@
 <p class="bg-background-600 py-3 px-6 rounded-md text-center">
   No hay subcategorías,
   <a
+    routerLink="/add-category"
+    [queryParams]="{ cat: data._id }"
     class="hover:underline hover:cursor-pointer font-bold hover:text-primary transition-colors"
     >agrega una</a
   >
