@@ -1,0 +1,25 @@
+<app-breadcrumb
+  [elements]="[
+    { label: catData.name, url: '/category/' + catId },
+    { label: data.name, url: '/category/' + catId + '/' + subId }
+  ]"
+></app-breadcrumb>
+<h1 class="font-bold font-enphasis text-4xl">{{ data.name }}</h1>
+@if (data.topics.length > 0) {
+<app-button class="self-center">
+  <svg-icon name="category-plus" svgClass="w-5 h-5 mr-2" />
+  Añadir tema
+</app-button>
+@for (top of data.topics; track top._id) {
+<a [routerLink]="['/category', catId, subId, top._id]">
+  <app-category-card [category]="top"></app-category-card>
+</a>
+} } @else {
+<p class="bg-background-600 py-3 px-6 rounded-md text-center">
+  No hay temas,
+  <a
+    class="hover:underline hover:cursor-pointer font-bold hover:text-primary transition-colors"
+    >agrega uno</a
+  >
+</p>
+}
