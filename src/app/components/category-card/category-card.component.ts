@@ -9,7 +9,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
   styleUrl: './category-card.component.css',
 })
 export class CategoryCardComponent {
-  @Input() category: Category = {} as Category;
+  @Input() category: Partial<Category> = {} as Category;
   isHovered = false;
 
   @HostListener('mouseenter')
