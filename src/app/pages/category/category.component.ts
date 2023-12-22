@@ -6,6 +6,7 @@ import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.comp
 import { ButtonComponent } from '../../components/button/button.component';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { CategoryCardComponent } from '../../components/category-card/category-card.component';
+import { StatusChipComponent } from '../../components/status-chip/status-chip.component';
 
 @Component({
   selector: 'app-category',
@@ -17,6 +18,7 @@ import { CategoryCardComponent } from '../../components/category-card/category-c
     ButtonComponent,
     SvgIconComponent,
     RouterLink,
+    StatusChipComponent,
   ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css',
